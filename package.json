@@ -4,7 +4,7 @@
   "description": "Rest Api match ticket genrator",
   "main": "server.js",
   "scripts": {
-    "start":"node API/server.js",
+    "start": "node API/server.js",
     "dev": "nodemon API/server.js "
   },
   "keywords": [
@@ -17,6 +17,7 @@
   "dependencies": {
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "express-async-handler": "^1.2.0",
     "mongoose": "^6.2.9"
   },
   "devDependencies": {

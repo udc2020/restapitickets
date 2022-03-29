@@ -7,7 +7,7 @@ function getTickets(req,res){
 function setTicket(req,res){
    if(!req.body.text) {
       res.status(400)
-      throw new Error ("empty filed cant sand")
+      throw new Error ("empty field cant sand")
    } 
 
    res.status(200).json({masasge:`tickets  post`})
