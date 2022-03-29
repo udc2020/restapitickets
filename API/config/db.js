@@ -1,9 +1,9 @@
 const mongoose = require("mongoose")
 
-const connectDateBase =  () => {
+const connectDateBase =  async () => {
 
    try {
-      const conn =  mongoose.connect(process.env.MONGO_URI).connection
+      const conn =  await mongoose.connect(process.env.MONGO_URI,{ useNewUrlParser: true }).connection
       console.error(`connect to DB`)
    } catch (error) {
       console.log(error)
