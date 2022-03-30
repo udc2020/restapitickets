@@ -46,3 +46,12 @@
 
       npm i express mongoos dotenv
       npm i -D nodemon
+
+
+### Don't Forget .env File ⭐:
+
+<br>
+
+      NODE_ENV = devlopment
+      PORT = <port>
+      MONGO_URI = <database-url/namedatabase>
