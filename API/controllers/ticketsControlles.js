@@ -42,28 +42,30 @@ const setTicket = asyncHandler(async (req, res) => {
       maxTicket: req.body.maxTicket,
 
    })
-   res.status(200).json(ticket)
+   res.status(201).json(ticket)
 
 })
 // PUT /api/tickets/:id (Private)
-const updateTicket = asyncHandler(async(req, res) => {
+const updateTicket = asyncHandler(async (req, res) => {
 
    const ticket = await Tickets.findById(req.params.id)
 
-   if (!ticket){
+   if (!ticket) {
       res.status(400)
       throw new Error("Dont Found Ticket")
    }
 
-   const updateTicket = await Tickets.findByIdAndUpdate(req.params.id,req.body,{new:true})
+   const updateTicket = await Tickets.findByIdAndUpdate(req.params.id, req.body, {
+      new: true
+   })
 
    res.status(200).json(updateTicket)
 })
 // DELETE /api/tickets/:id (Private)
-const deleteTicket = asyncHandler(async(req, res) => {
+const deleteTicket = asyncHandler(async (req, res) => {
    const ticket = await Tickets.findById(req.params.id)
 
-   if(!ticket){
+   if (!ticket) {
       res.status(400)
       throw new Error("Dont Found Ticket")
    }
@@ -71,7 +73,7 @@ const deleteTicket = asyncHandler(async(req, res) => {
    await ticket.remove()
    res.status(200).json({
       id: req.params.id,
-      massage:"Ticket Removed"
+      massage: "Ticket Removed"
    })
 })
 

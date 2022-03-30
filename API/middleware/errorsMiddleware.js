@@ -1,3 +1,4 @@
+// Error Handler Middelware
 const errorController = (err, req, res, next) => {
    const codeStatus = res.statusCode ? res.statusCode : 500
 

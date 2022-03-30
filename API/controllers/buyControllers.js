@@ -6,9 +6,9 @@ const Tickets = require('../models/ticketsModel')
 let counter = 0
 
 // GET /api/buy/:id (public)
-const getTicketBuy = asyncHandler(async (req,res) => {
+const getTicketBuy = asyncHandler(async (req, res) => {
    const ticket = await Tickets.findById(req.params.id)
-   if(!ticket){
+   if (!ticket) {
       res.status(500)
       throw new Error('Ticket dont Exists')
    }
@@ -16,27 +16,35 @@ const getTicketBuy = asyncHandler(async (req,res) => {
 })
 
 // POST /api/buy/:id (public)
-const setTicketBuy = asyncHandler(async (req,res) => {
+const setTicketBuy = asyncHandler(async (req, res) => {
    const ticket = await Tickets.findById(req.params.id)
-   if(!ticket){
+   if (!ticket) {
       res.status(500)
       throw new Error('Ticket dont Exists')
    }
-   if(ticket.currentTickets < ticket.maxTicket ){
+   if (ticket.currentTickets < ticket.maxTicket) {
       counter = ticket.currentTickets + 1
       const client = await Clients.create({
-         firstName:req.body.firstName,
-         lastName:req.body.lastName,
-         ticketId:req.params.id,
-         ticketNumber:counter
+         firstName: req.body.firstName,
+         lastName: req.body.lastName,
+         ticketId: req.params.id,
+         ticketNumber: counter
       })
-      
-      const updateTicketCounter = await Tickets.findByIdAndUpdate( {"_id":req.params.id} , {$set:{"currentTickets":counter}} )
 
-      res.status(200).json(client)
+      const updateTicketCounter = await Tickets.findByIdAndUpdate({
+         "_id": req.params.id
+      }, {
+         $set: {
+            "currentTickets": counter
+         }
+      })
 
-   }else{
-      res.status(200).json({massage:"Tickets Sold Out"})
+      res.status(201).json(client)
+
+   } else {
+      res.status(200).json({
+         massage: "Tickets Sold Out"
+      })
    }
 
 

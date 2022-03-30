@@ -9,16 +9,16 @@ const clientSchema = mongoose.Schema({
       type: String,
       required: [true, "Please add Your Last name"]
    },
-   ticketId:{
-      type:String,
-      required:true
+   ticketId: {
+      type: String,
+      required: true
    },
-   ticketNumber:{
-      type:Number,
-      required:true
+   ticketNumber: {
+      type: Number,
+      required: true
    }
 })
 
 
 
-module.exports = mongoose.model("Clients",clientSchema)
+module.exports = mongoose.model("Clients", clientSchema)
