@@ -3,6 +3,7 @@ const router = express.Router()
 
 const {
    getTickets,
+   getOneTicket,
    setTicket,
    deleteTicket,
    updateTicket
@@ -14,6 +15,7 @@ router.route('/')
    .post(setTicket)
 
 router.route('/:id')
+   .get(getOneTicket)
    .put(updateTicket)
    .delete(deleteTicket)
 
