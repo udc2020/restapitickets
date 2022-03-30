@@ -41,7 +41,11 @@ const ticketSchema = mongoose.Schema({
       type:Number,
       required:[true,"you must add max ticket"]
    },
+   currentTickets:{
+      type:Number,
+      default:0
+   }
 
 })
 
-module.exports = mongoose.model("Ticktes",ticketSchema)
+module.exports = mongoose.model("Tickets",ticketSchema)

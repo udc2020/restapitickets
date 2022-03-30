@@ -1,7 +1,9 @@
 require("dotenv").config()
 
 const express = require('express')
-const { errorController } = require("./middleware/errorsMiddleware")
+const {
+   errorController
+} = require("./middleware/errorsMiddleware")
 const connectDb = require('./config/db')
 const app = express()
 
@@ -11,13 +13,14 @@ const port = process.env.PORT || 5000
 
 // Midelwares
 app.use(express.json())
-app.use(express.urlencoded({extended:false}))
+app.use(express.urlencoded({
+   extended: false
+}))
 
 // Routes
-app.use('/api/tickets',require('./routes/tickets'))
-app.use('/api/dashboard',require('./routes/dashboard'))
-app.use('/api/page',require('./routes/page'))
-app.use('/api/viewPage',require('./routes/viewPage'))
+app.use('/api/tickets', require('./routes/tickets'))
+app.use('/api/buy', require('./routes/buy'))
+app.use('/api/clients', require('./routes/clients'))
 
 
 

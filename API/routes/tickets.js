@@ -7,7 +7,7 @@ const {
    setTicket,
    deleteTicket,
    updateTicket
-} = require('../controllers/controlles')
+} = require('../controllers/ticketsControlles')
 
 
 router.route('/')
