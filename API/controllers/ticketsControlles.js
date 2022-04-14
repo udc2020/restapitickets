@@ -32,7 +32,7 @@ const setTicket = asyncHandler(async (req, res) => {
    const ticket = await Tickets.create({
       header: req.body.header,
       date: req.body.date,
-      getsOpen: req.body.getOpen,
+      getsOpen: req.body.getsOpen,
       stadium: req.body.stadium,
       team1: req.body.team1,
       team2: req.body.team2,
